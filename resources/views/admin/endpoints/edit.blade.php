@@ -11,7 +11,14 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <x-alerts />
                     <form action="{{ route('endpoints.update', [$site->id, $endpoint->id]) }}" method="POST">
+                        @method('PUT')
                         @include('admin.endpoints.partials.form')
+                    </form>
+
+                    <form action="{{ route('endpoints.destroy', [$site->id, $endpoint->id]) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button>Deletar site</button>
                     </form>
                 </div>
             </div>

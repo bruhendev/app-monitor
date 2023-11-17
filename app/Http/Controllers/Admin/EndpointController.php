@@ -42,4 +42,16 @@ class EndpointController extends Controller
     {
         return view('admin.endpoints.edit', compact('site', 'endpoint'));
     }
+
+    public function update(StoreUpdateEndpointRequest $request, Site $site, Endpoint $endpoint)
+    {
+        $endpoint->update($request->validated());
+        return redirect()->route('endpoints.index', $site->id)->with('message', 'Atualizado com sucesso');
+    }
+
+    public function destroy(Site $site, Endpoint $endpoint)
+    {
+        $endpoint->delete();
+        return redirect()->route('endpoints.index', $site->id)->with('message', 'Deletado com sucesso');
+    }
 }

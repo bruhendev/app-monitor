@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateEndpointRequest;
+use App\Models\Endpoint;
 use App\Models\Site;
 use Illuminate\Http\Request;
 
@@ -35,5 +36,10 @@ class EndpointController extends Controller
         $site->endpoints()->create($request->all());
 
         return redirect()->route('endpoints.index', $site->id)->with('message', 'Cadastrado com sucesso');
+    }
+
+    public function edit(Site $site, Endpoint $endpoint)
+    {
+        return view('admin.endpoints.edit', compact('site', 'endpoint'));
     }
 }

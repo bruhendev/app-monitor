@@ -5,7 +5,7 @@
                 {{ __('Endpoints do site ' . $site->url) }}
             </h2>
             <a class="ml-4" href="{{ route('endpoints.create', $site->id) }}">Novo</a>
-            
+
         </div>
     </x-slot>
 
@@ -16,11 +16,14 @@
                     <x-alerts />
                     <div class="relative overflow-x-auto">
                         <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 pb-6"><span style="float: left"">Endpoint</span></th>
-                                    <th scope="col" class="px-6 pb-6"><span style="float: left"">Frequência</span></th>
-                                    <th scope="col" class="px-6 pb-6"><span style="float: left"">Próxima Verificação</span></th>
+                                    <th scope="col" class="px-6 pb-6"><span style="float: left"">Frequência</span>
+                                    </th>
+                                    <th scope="col" class="px-6 pb-6"><span style="float: left"">Próxima
+                                            Verificação</span></th>
                                     <th scope="col" class="px-6 pb-6"><span style="float: left">Ações</span></th>
                                 </tr>
                             </thead>
@@ -31,14 +34,15 @@
                                         <td class="px-6 py-4">{{ $endpoint->frequency }}</td>
                                         <td class="px-6 py-4">{{ $endpoint->next_check }}</td>
                                         <td class="px-6 py-4">
-                                            <a href="{{ route('sites.edit', $site->id) }}">Editar</a>
+                                            <a
+                                                href="{{ route('endpoints.edit', [$site->id, $endpoint->id]) }}">Editar</a>
                                             <a href="{{ route('endpoints.index', $site->id) }}">Endpoints</a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                       
+
                     </div>
                 </div>
             </div>

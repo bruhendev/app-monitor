@@ -12,7 +12,7 @@ class Check extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $fillable = ['status_code', 'body'];
+    protected $fillable = ['status_code', 'response_body'];
 
     public function endpoint(): BelongsTo
     {
